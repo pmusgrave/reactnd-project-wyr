@@ -20,13 +20,5 @@ export function handleInitialData() {
 	    	dispatch(receiveQuestions(data.questions));
 	    	dispatch(hideLoading());
 		});
-
-		// return getInitialData()
-		// .then(({ users, tweets }) => {
-		// 	dispatch(receiveUsers(users));
-		// 	dispatch(receiveTweets(tweets));
-		// 	dispatch(setAuthedUser(AUTHED_ID));
-		// 	dispatch(hideLoading());
-		// })
 	}
 }
