@@ -11,7 +11,7 @@ describe('Questions reducer', () => {
 	});
 
 	describe('empty state, RECEIVE_QUESTIONS action type', () => {
-		it('should return initial users list', async () => {
+		it('should return initial questions list', async () => {
 			let questionlist = await data._getQuestions();
 			const state = questions({}, {
 				type: RECEIVE_QUESTIONS,

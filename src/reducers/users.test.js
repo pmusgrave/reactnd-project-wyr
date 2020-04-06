@@ -12,7 +12,7 @@ describe('users reducer', () => {
 
 	describe('empty state, RECEIVE_USERS action type', () => {
 		it('should return initial users list', async () => {
-			let userList = await data._getQuestions();
+			let userList = await data._getUsers();
 			const state = users({}, {
 				type: RECEIVE_USERS,
 				users: userList,
@@ -23,7 +23,7 @@ describe('users reducer', () => {
 
 	describe('non-empty state, undefined action type', () => {
 		it('should make no changes to state', async () => {
-			let userList = await data._getQuestions()
+			let userList = await data._getUsers()
 			let state = {
 				users: userList,
 			}
@@ -34,25 +34,23 @@ describe('users reducer', () => {
 
 	describe('non-empty state, RECEIVE_USERS action type', () => {
 		it('should append new users onto state', async () => {
-			let userList = await data._getQuestions()
+			let userList = await data._getUsers()
 			let state = {
 				users: userList,
 			}
 
 			let newUserList = {
-				"a": {
-			    id: 'a',
-			    author: 'johndoe',
-			    timestamp: 1467166872634,
-			    optionOne: {
-			      votes: ['sarahedo'],
-			      text: 'asdf',
-			    },
-			    optionTwo: {
-			      votes: [],
-			      text: 'zxcv'
-			    }
-			  },	
+				johndoe: {
+				    id: 'johndoe',
+				    name: 'John Doe',
+				    avatarURL: "http://placekitten.com/400/400",
+				    answers: {
+				      "xj352vofupe1dqz9emx13r": 'optionOne',
+				      "vthrdm985a262al8qx3do": 'optionTwo',
+				      "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+				    },
+				    questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+				}
 			};
 
 			const newState = users(state, {
