@@ -6,6 +6,8 @@ import logo from '../resources/logo.svg';
 import './App.css';
 import { handleInitialData } from '../actions/shared'
 // import { _getUsers, _getQuestions } from '../utils/_DATA'
+import LoginPage from './LoginPage'
+import QuestionList from './QuestionList'
 
 class App extends Component {
   componentDidMount() {
@@ -17,22 +19,15 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <div className="App" data-testid="app">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn React
-              </a>
-            </header>
-          </div>
+          {this.props.loading === true
+            ? null
+            : <div>
+                <Route path='/' exact component={LoginPage}/>
+              </div>}
+
+          {this.props.authedUser === null
+          ? null
+          : <Route path='/' exact component={QuestionList}/>}
         </Fragment>
       </Router>
     );
@@ -41,7 +36,8 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser, users, questions }) {
   return {
-    loading: authedUser === null,
+    loading: Object.values(users).length === 0,
+    authedUser,
     users,
     questions,
   }

@@ -7,13 +7,15 @@ import reducer from '../reducers'
 import middleware from '../middleware'
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders main app', () => {
 	const store = createStore(reducer, middleware);
-  const { getByTestId } = render(
-  	<Provider store={store}>
+	
+	const { getByTestId } = render(
+		<Provider store={store}>
 			<App />
 		</Provider>
 	);
-  const appdiv = getByTestId('app')
-  expect(appdiv).toBeInTheDocument();
+
+	const loginComponent = getByTestId('app')
+	expect(loginComponent).toBeInTheDocument();
 });
