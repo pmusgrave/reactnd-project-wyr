@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setAuthedUser } from '../actions/authedUser'
 import Login from './Login'
 
 class QuestionList extends Component {
