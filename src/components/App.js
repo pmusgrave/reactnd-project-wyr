@@ -6,7 +6,9 @@ import './App.css';
 import { handleInitialData } from '../actions/shared'
 // import { _getUsers, _getQuestions } from '../utils/_DATA'
 import LoginPage from './LoginPage'
+import AuthenticatedHeader from './AuthenticatedHeader'
 import AuthenticatedApp from './AuthenticatedApp'
+import QuestionPage from './QuestionPage'
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +20,11 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
+          {this.props.authedUser === null
+          ? null
+          : <AuthenticatedHeader />
+          }
+
           {this.props.loading === true
             ? null
             : this.props.authedUser === null && <div>
@@ -26,7 +33,10 @@ class App extends Component {
 
           {this.props.authedUser === null
           ? null
-          : <Route path='/' exact component={AuthenticatedApp}/>}
+          : <div>
+              <Route path='/' exact component={AuthenticatedApp} />
+              <Route path='/questions/:id' exact component={QuestionPage} />
+            </div>}
         </Fragment>
       </Router>
     );

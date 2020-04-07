@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import AuthenticatedHeader from './AuthenticatedHeader'
 import QuestionList from './QuestionList'
 
 class AuthenticatedApp extends Component {
@@ -11,7 +12,6 @@ class AuthenticatedApp extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.logoutClick}>Logout</button>
         <QuestionList />
       </div>
     );
