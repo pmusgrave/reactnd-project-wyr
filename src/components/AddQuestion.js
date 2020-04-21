@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { addQuestion } from '../actions/questions'
 import Results from './Results'
@@ -7,6 +8,7 @@ class AddQuestion extends Component {
   state = {
     optionOne: "",
     optionTwo: "",
+    redirect: false,
   };
 
   handleChangeOption = (e, option) => {
@@ -24,11 +26,14 @@ class AddQuestion extends Component {
       this.state.optionOne,
       this.state.optionTwo,
       this.props.authedUser,
-    ))
+    ));
+    this.setState({ redirect: true });
   }
 
   render() {
-    return (
+    return this.state.redirect
+    ? <Redirect push to="/" />
+    : (
       <div>
         <h1>Create New Question</h1>
         <h4>Complete the question:</h4>
