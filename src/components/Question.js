@@ -11,6 +11,10 @@ class Question extends Component {
 
   submitClick = (e) => {
     e.preventDefault()
+    if (this.state.choice === null) {
+      return;
+    }
+    
     this.props.dispatch(handleAnswerQuestion(
       this.props.authedUser,
       this.props.id,
