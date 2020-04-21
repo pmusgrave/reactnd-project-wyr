@@ -4,10 +4,17 @@ import UserInfo from './UserInfo'
 
 class Leaderboard extends Component {
   render() {
-    console.log(this.props.users);
     return (
       <ul>
-        {Object.values(this.props.users).map((user) => {
+        {Object.values(this.props.users)
+          .sort((usera, userb) => {
+            let answers_a = Object.values(this.props.users[usera.id].answers).length;
+            let questions_a = Object.values(this.props.users[usera.id].questions).length;
+            let answers_b = Object.values(this.props.users[userb.id].answers).length;
+            let questions_b = Object.values(this.props.users[userb.id].questions).length;
+            return (answers_b + questions_b) - (answers_a + questions_a); 
+          })
+          .map((user) => {
           return (
             <li key={user.id}>
               <UserInfo id={user.id} />
