@@ -42,7 +42,11 @@ class QuestionList extends Component {
         </span>
         <div>
           <ul>
-            {questionsList.map((question) => (
+            {questionsList
+              .sort((questiona, questionb) => {
+                return questionb.timestamp - questiona.timestamp
+              })
+              .map((question) => (
               <li key={question.id}>
                 <div className="question">
                   <p>Would you rather</p>
