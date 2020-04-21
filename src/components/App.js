@@ -10,6 +10,7 @@ import AuthenticatedHeader from './AuthenticatedHeader'
 import AuthenticatedApp from './AuthenticatedApp'
 import QuestionPage from './QuestionPage'
 import AddQuestion from './AddQuestion'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
@@ -38,6 +39,7 @@ class App extends Component {
               <Route path='/' exact component={AuthenticatedApp} />
               <Route path='/questions/:id' exact component={QuestionPage} />
               <Route path='/add' exact component={AddQuestion} />
+              <Route path='/leaderboard' exact component={Leaderboard} />
             </div>}
         </Fragment>
       </Router>

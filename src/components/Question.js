@@ -11,12 +11,11 @@ class Question extends Component {
 
   submitClick = (e) => {
     e.preventDefault()
-    console.log(this.props.id, this.props.authedUser, this.state.choice)
-    this.props.dispatch(answerQuestion({
-      qid: this.props.id,
-      authedUser: this.props.authedUser,
-      answer: this.state.choice,
-    }))
+    this.props.dispatch(answerQuestion(
+      this.props.authedUser,
+      this.props.id,
+      this.state.choice,
+    ))
     this.setState({ answered:true });
   }
 
