@@ -24,7 +24,6 @@ export function handleAnswerQuestion(authedUser, qid, answer) {
 		dispatch(showLoading());
 		await _saveQuestionAnswer({ authedUser, qid, answer })
 		let questions = await _getQuestions();
-		console.log(questions)
 		dispatch(receiveQuestions(questions));
 		let users = await _getUsers();
 		dispatch(receiveUsers(users));
@@ -42,6 +41,8 @@ export function addQuestion(optionOne, optionTwo, author) {
 		});
 		let updated_questions = await _getQuestions()
 		dispatch(receiveQuestions(updated_questions));
+		let users = await _getUsers();
+		dispatch(receiveUsers(users));
 		dispatch(hideLoading());
 	}
 }
