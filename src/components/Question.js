@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { answerQuestion } from '../actions/questions'
+import Results from './Results'
 
 class Question extends Component {
   state = {
     choice: null,
+    answered: false,
   };
 
   submitClick = (e) => {
@@ -15,6 +17,7 @@ class Question extends Component {
       authedUser: this.props.authedUser,
       answer: this.state.choice,
     }))
+    this.setState({ answered:true });
   }
 
   handleChange = (e) => {
@@ -22,8 +25,14 @@ class Question extends Component {
   }
 
   render() {
+    let answered = this.props.question.optionOne.votes.includes(this.props.authedUser)
+      || this.props.question.optionTwo.votes.includes(this.props.authedUser);
+
     return (
-      <form onSubmit={(e) => {this.submitClick(e)}}>
+      answered 
+      ? <Results id={this.props.id}/>
+
+      : <form onSubmit={(e) => {this.submitClick(e)}}>
         <p>Would You Rather...</p>
         <div>
           <label>

@@ -12,7 +12,6 @@ export default function questions(state = {}, action) {
 		// console.log(state.questions[action.answer.qid][action.answer.answerValue].votes)
 		let answer = action.answer.answer;
 		let questions = {...state}
-		console.log(state)
 		let options = [
 			questions[action.answer.qid].optionOne,
 			questions[action.answer.qid].optionTwo,
