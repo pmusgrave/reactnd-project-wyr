@@ -29,7 +29,9 @@ class QuestionList extends Component {
       })
 
     return (
-      <div>
+      <div
+        className="question-info"
+        className="center">
         <span>
           <button onClick={this.setViewUnanswered}>
             Unanswered Questions
@@ -42,7 +44,7 @@ class QuestionList extends Component {
           <ul>
             {questionsList.map((question) => (
               <li key={question.id}>
-                <div>
+                <div className="question">
                   <p>Would you rather</p>
                   <p>{question.optionOne.text}</p>
                   <Link to={`/questions/${question.id}`}>

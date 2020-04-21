@@ -34,7 +34,7 @@ class AddQuestion extends Component {
     return this.state.redirect
     ? <Redirect push to="/" />
     : (
-      <div>
+      <div className="center">
         <h1>Create New Question</h1>
         <h4>Complete the question:</h4>
         <h2>Would you rather ...</h2>

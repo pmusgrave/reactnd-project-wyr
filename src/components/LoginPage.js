@@ -6,7 +6,7 @@ import Login from './Login'
 class LoginPage extends Component {
   render() {
     return (
-    	<div>
+    	<div className="center">
     		<div>
     			<p>Welcome to the Would You Rather App!</p>
     			<p>Please sign in to continue</p>

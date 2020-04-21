@@ -5,7 +5,7 @@ import UserInfo from './UserInfo'
 class Leaderboard extends Component {
   render() {
     return (
-      <ul>
+      <ul className="center">
         {Object.values(this.props.users)
           .sort((usera, userb) => {
             let answers_a = Object.values(this.props.users[usera.id].answers).length;
@@ -16,7 +16,8 @@ class Leaderboard extends Component {
           })
           .map((user) => {
           return (
-            <li key={user.id}>
+            <li key={user.id}
+              className="question">
               <UserInfo id={user.id} />
             </li>)
         })}

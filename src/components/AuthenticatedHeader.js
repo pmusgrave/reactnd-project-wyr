@@ -13,7 +13,7 @@ class AuthenticatedHeader extends Component {
     let { users, authedUser } = this.props;
 
     return (
-      <div>
+      <div className="center">
         <Link to='/'>
           <button>Home</button>
         </Link>
@@ -26,6 +26,7 @@ class AuthenticatedHeader extends Component {
         <span>
           Hello, {users[authedUser].name}
           <img
+            className="avatar"
             src={users[authedUser].avatarURL}
             alt="avatar" 
             height={50}

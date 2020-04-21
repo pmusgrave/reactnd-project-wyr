@@ -31,7 +31,14 @@ class Question extends Component {
       answered 
       ? <Results id={this.props.id}/>
 
-      : <form onSubmit={(e) => {this.submitClick(e)}}>
+      : <form
+          className="question"
+          onSubmit={(e) => {this.submitClick(e)}}>
+        <img
+          className="avatar"
+          src={this.props.users[this.props.question.author].avatarURL}
+        />
+        <p>{this.props.users[this.props.question.author].name} Asks</p>
         <p>Would You Rather...</p>
         <div>
           <label>
@@ -53,9 +60,10 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser, questions }, props) {
+function mapStateToProps ({ users, authedUser, questions }, props) {
   const question = questions[props.id]
   return {
+    users,
     authedUser,
     question,
   }

@@ -11,7 +11,7 @@ class AuthenticatedApp extends Component {
 
   render() {
     return (
-      <div>
+      <div className="center">
         <QuestionList />
       </div>
     );

@@ -7,16 +7,21 @@ class Results extends Component {
     let option_two_answers = this.props.question.optionTwo.votes.length;
     let total_answers = option_one_answers + option_two_answers;
     return (
-      <div>
+      <div className="question"
+        className="center">
         <h4>Asked by {this.props.users[this.props.question.author].name}</h4>
+        <img
+          className="avatar"
+          src={this.props.users[this.props.question.author].avatarURL}
+        />
         <h2>Results:</h2>
-        <div>
+        <div className="question">
           <p>Would you rather {this.props.question.optionOne.text}?</p>
-          <p>{option_one_answers} out of {total_answers}</p>
+          <p>{option_one_answers} out of {total_answers} votes</p>
         </div>
-        <div>
+        <div className="question">
           <p>Would you rather {this.props.question.optionTwo.text}?</p>
-          <p>{option_two_answers} out of {total_answers}</p>
+          <p>{option_two_answers} out of {total_answers} votes</p>
         </div>
       </div>
     );

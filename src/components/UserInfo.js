@@ -7,6 +7,10 @@ class UserInfo extends Component {
     let questions = Object.values(this.props.users[this.props.id].questions).length;
     return (
       <div>
+        <img
+          className="avatar"
+          src={this.props.users[this.props.id].avatarURL}
+        />
         <h2>{this.props.users[this.props.id].name}</h2>
         <p>Answered Questions {answers}</p>
         <p>Created Questions {questions}</p>
