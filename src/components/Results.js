@@ -17,10 +17,12 @@ class Results extends Component {
         <h2>Results:</h2>
         <div className="question">
           <p>Would you rather {this.props.question.optionOne.text}?</p>
+          <p>{((option_one_answers / total_answers)*100).toFixed(2)}%</p>
           <p>{option_one_answers} out of {total_answers} votes</p>
         </div>
         <div className="question">
           <p>Would you rather {this.props.question.optionTwo.text}?</p>
+          <p>{((option_two_answers / total_answers)*100).toFixed(2)}%</p>
           <p>{option_two_answers} out of {total_answers} votes</p>
         </div>
       </div>
