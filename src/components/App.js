@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading'
 import './App.css';
@@ -11,6 +11,7 @@ import QuestionPage from './QuestionPage'
 import AddQuestion from './AddQuestion'
 import Leaderboard from './Leaderboard'
 import AuthPage from './AuthPage'
+import ErrorPage from './ErrorPage'
 
 class App extends Component {
   componentDidMount() {
@@ -34,17 +35,20 @@ class App extends Component {
               </div>}
 
           {this.props.authedUser === null
-          ? <div>
+          ? <Switch>
+              <Route path='/' exact/>
               <Route path='/questions/:id' exact component={AuthPage} />
               <Route path='/add' exact component={AuthPage} />
               <Route path='/leaderboard' exact component={AuthPage} />
-            </div>
-          : <div>
+              <Route component={ErrorPage} />
+            </Switch>
+          : <Switch>
               <Route path='/' exact component={AuthenticatedApp} />
               <Route path='/questions/:id' exact component={QuestionPage} />
               <Route path='/add' exact component={AddQuestion} />
               <Route path='/leaderboard' exact component={Leaderboard} />
-            </div>}
+              <Route component={ErrorPage} />
+            </Switch>}
         </Fragment>
       </Router>
     );
