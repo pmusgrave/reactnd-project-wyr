@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { answerQuestion } from '../actions/questions'
+import { handleAnswerQuestion } from '../actions/questions'
 import Results from './Results'
 
 class Question extends Component {
@@ -11,7 +11,7 @@ class Question extends Component {
 
   submitClick = (e) => {
     e.preventDefault()
-    this.props.dispatch(answerQuestion(
+    this.props.dispatch(handleAnswerQuestion(
       this.props.authedUser,
       this.props.id,
       this.state.choice,

@@ -9,7 +9,9 @@ export default function questions(state = {}, action) {
 			...action.questions,
 		}
 	case ANSWER_QUESTION:
-		
+		return {
+			...state,
+		}
 	default:
 		return state;
 	}
