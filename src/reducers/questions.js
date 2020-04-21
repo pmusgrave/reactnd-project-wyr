@@ -1,5 +1,5 @@
 import { ANSWER_QUESTION, RECEIVE_QUESTIONS } from '../actions/questions';
-import { _saveQuestionAnswer } from '../utils/_DATA'
+import { _getQuestions, _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
 
 export default function questions(state = {}, action) {
 	switch(action.type) {

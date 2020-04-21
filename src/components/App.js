@@ -9,6 +9,7 @@ import LoginPage from './LoginPage'
 import AuthenticatedHeader from './AuthenticatedHeader'
 import AuthenticatedApp from './AuthenticatedApp'
 import QuestionPage from './QuestionPage'
+import AddQuestion from './AddQuestion'
 
 class App extends Component {
   componentDidMount() {
@@ -36,6 +37,7 @@ class App extends Component {
           : <div>
               <Route path='/' exact component={AuthenticatedApp} />
               <Route path='/questions/:id' exact component={QuestionPage} />
+              <Route path='/add' exact component={AddQuestion} />
             </div>}
         </Fragment>
       </Router>
