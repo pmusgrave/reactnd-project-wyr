@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
 import Results from './Results'
+import ErrorPage from './ErrorPage'
 
 class Question extends Component {
   state = {
@@ -28,6 +29,10 @@ class Question extends Component {
   }
 
   render() {
+    if (this.props.question === undefined) {
+      return <ErrorPage/>
+    }
+    
     let answered = this.props.question.optionOne.votes.includes(this.props.authedUser)
       || this.props.question.optionTwo.votes.includes(this.props.authedUser);
 
@@ -57,7 +62,7 @@ class Question extends Component {
           </label>
         </div>
         <div>
-        <button type="submit">Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     );
