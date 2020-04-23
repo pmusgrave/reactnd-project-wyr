@@ -37,9 +37,9 @@ class App extends Component {
           {this.props.authedUser === null
           ? <Switch>
               <Route path='/' exact/>
-              <Route path='/questions/:id' exact component={AuthPage} />
-              <Route path='/add' exact component={AuthPage} />
-              <Route path='/leaderboard' exact component={AuthPage} />
+              <Route path='/questions/:id' exact component={QuestionPage} />
+              <Route path='/add' exact component={AddQuestion} />
+              <Route path='/leaderboard' exact component={Leaderboard} />
               <Route component={ErrorPage} />
             </Switch>
           : <Switch>

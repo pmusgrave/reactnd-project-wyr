@@ -3,6 +3,7 @@ import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { addQuestion } from '../actions/questions'
 import Results from './Results'
+import LoginPage from './LoginPage'
 
 class AddQuestion extends Component {
   state = {
@@ -31,35 +32,45 @@ class AddQuestion extends Component {
   }
 
   render() {
-    return this.state.redirect
-    ? <Redirect push to="/" />
-    : (
-      <div className="center">
-        <h1>Create New Question</h1>
-        <h4>Complete the question:</h4>
-        <h2>Would you rather ...</h2>
-        <form onSubmit={(e) => {this.submitClick(e)}}>
-          <label>
-            <input
-              type="text"
-              name="optionOne"
-              onChange={(e) => {this.handleChangeOption(e,"one")}} 
-            />
-          </label>
-          <h3>or</h3>
-          <label>
-            <input
-              type="text"
-              name="optionTwo"
-              onChange={(e) => {this.handleChangeOption(e,"two")}} 
-            />
-          </label>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    );
+    if (this.props.authedUser === null) {
+      return (
+        <div className="center">
+          <h2>Please Log In</h2>
+          <LoginPage />
+        </div>
+      )
+    }
+    else {
+      return this.state.redirect
+      ? <Redirect push to="/" />
+      : (
+        <div className="center">
+          <h1>Create New Question</h1>
+          <h4>Complete the question:</h4>
+          <h2>Would you rather ...</h2>
+          <form onSubmit={(e) => {this.submitClick(e)}}>
+            <label>
+              <input
+                type="text"
+                name="optionOne"
+                onChange={(e) => {this.handleChangeOption(e,"one")}} 
+              />
+            </label>
+            <h3>or</h3>
+            <label>
+              <input
+                type="text"
+                name="optionTwo"
+                onChange={(e) => {this.handleChangeOption(e,"two")}} 
+              />
+            </label>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      );
+    }
   }
 }
 
