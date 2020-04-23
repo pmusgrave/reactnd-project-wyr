@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link  } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
-import AddQuestion from './AddQuestion'
 
 class AuthenticatedHeader extends Component {
   logoutClick = () => {
@@ -32,7 +31,9 @@ class AuthenticatedHeader extends Component {
             height={50}
             width={50}/>
         </span>
-        <button onClick={this.logoutClick}>Logout</button>
+        <Link to='/'>
+          <button onClick={this.logoutClick}>Logout</button>
+        </Link>
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { addQuestion } from '../actions/questions'
-import Results from './Results'
 import LoginPage from './LoginPage'
 
 class AddQuestion extends Component {

@@ -7,10 +7,10 @@ class Results extends Component {
     let option_two_answers = this.props.question.optionTwo.votes;
     let total_answers = option_one_answers.length + option_two_answers.length;
     return (
-      <div className="question"
-        className="center">
+      <div className="question">
         <h4>Asked by {this.props.users[this.props.question.author].name}</h4>
         <img
+          alt="avatar"
           className="avatar"
           src={this.props.users[this.props.question.author].avatarURL}
         />

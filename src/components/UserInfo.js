@@ -8,6 +8,7 @@ class UserInfo extends Component {
     return (
       <div>
         <img
+          alt="avatar"
           className="avatar"
           src={this.props.users[this.props.id].avatarURL}
         />

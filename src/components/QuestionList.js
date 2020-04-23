@@ -30,8 +30,7 @@ class QuestionList extends Component {
 
     return (
       <div
-        className="question-info"
-        className="center">
+        className="question-info">
         <span>
           <button onClick={this.setViewUnanswered}>
             Unanswered Questions

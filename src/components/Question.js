@@ -44,6 +44,7 @@ class Question extends Component {
           className="question"
           onSubmit={(e) => {this.submitClick(e)}}>
         <img
+          alt="avatar"
           className="avatar"
           src={this.props.users[this.props.question.author].avatarURL}
         />

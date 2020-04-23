@@ -34,7 +34,7 @@ export function handleAnswerQuestion(authedUser, qid, answer) {
 export function addQuestion(optionOne, optionTwo, author) {
 	return async (dispatch) => {
 		dispatch(showLoading());
-		let new_question = await _saveQuestion({
+		await _saveQuestion({
 			author: author,
 			optionOneText: optionOne,
 			optionTwoText: optionTwo,

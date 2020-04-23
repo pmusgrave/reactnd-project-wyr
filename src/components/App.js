@@ -10,7 +10,6 @@ import AuthenticatedApp from './AuthenticatedApp'
 import QuestionPage from './QuestionPage'
 import AddQuestion from './AddQuestion'
 import Leaderboard from './Leaderboard'
-import AuthPage from './AuthPage'
 import ErrorPage from './ErrorPage'
 
 class App extends Component {
